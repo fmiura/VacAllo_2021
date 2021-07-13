@@ -7,9 +7,9 @@ Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J
 ## About this repository
 | Folder    | Description |
 |-----------|------------------------------------------------------|
-| scripts   | R scripts to reproduce the results in Miura et al. (2021) |
-| functions | Functions needed to run the scripts |
 | data      | Raw datasets |
+| src       | R scripts to reproduce the results in Miura et al. (2021) |
+| figures   | Figures and scripts for visualization |
 
 ## Authors
 [Fuminari Miura](https://github.com/akira-endo), 
