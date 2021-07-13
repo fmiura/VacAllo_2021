@@ -1,6 +1,9 @@
 # Vaccine allocation algorithm
 Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J (2021). Optimal vaccine allocation for COVID-19 in the Netherlands: a data-driven prioritization (doi:to be added later)
 
+## Licence
+[MIT](https://github.com/fmiura/VacAllo_2021/blob/main/LICENSE)
+
 ## About this repository
 | Folder    | Description |
 |-----------|------------------------------------------------------|
