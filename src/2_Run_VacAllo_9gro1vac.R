@@ -255,7 +255,7 @@ run_D_gro9vac1 <- VacAllo_func_gro9vac1(z_plot_length=100, target="D")
 #####3. Store the results for age-SIR simulations (40% coverage) ------
 Vac40dist_minR <- run_R_gro9vac1$VacCov[51,]/n_i
 Vac40dist_minH <- run_H_gro9vac1$VacCov[51,]/n_i
-Vac40dist_minD <- test_run_D_gro9vac1$VacCov[51,]/n_i
+Vac40dist_minD <- run_D_gro9vac1$VacCov[51,]/n_i
 
 write_rds(Vac40dist_minR, "Vac40dist_minR")
 write_rds(Vac40dist_minH, "Vac40dist_minH")
