@@ -26,6 +26,9 @@ result_list_D_6gro4vac <- read_rds("result_list_D_6gro4vac")
 result_objective_6gro4vac <- read_rds("result_objective_6gro4vac")
 result_objective_6gro3vac <- read_rds("result_objective_6gro3vac")
 
+VE_dat_list <- read_rds("VE_dat_list")
+Input_dat_list <- read_rds("Input_dat_list")
+
 ## 2. plot all results -----
 #plot all results in minimize(R) -----
 plot_R_vac <- list()
