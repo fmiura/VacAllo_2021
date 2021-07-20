@@ -9,7 +9,7 @@ Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J
 |-----------|------------------------------------------------------|
 | data      | Raw datasets |
 | src       | R scripts to reproduce the results in Miura et al. (2021) |
-| figures   | Figures and scripts for visualization |
+| figures   | Raw figure files in the manuscript |
 
 ## Authors
 [Fuminari Miura](https://github.com/akira-endo), 
