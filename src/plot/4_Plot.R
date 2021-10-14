@@ -10,6 +10,7 @@
 library(ggplot2)
 library(patchwork)
 library(readr)
+library(dplyr)
 custom.col.10 <- c("#001219","#005F73","#0A9396","#94D2BD","#E9D8A6","#EE9B00","#CA6702","#BB3E03","#AE2012","#9B2226") #https://coolors.co/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226 #barplot(1:10, col = custom.col.10)
 
 ## 1. read simulation outputs -----
@@ -190,7 +191,7 @@ Epicurve_panel <-  ggplot(data = summary_inf_sim %>% filter(Strategy=="No vaccin
   geom_line() +
   labs(x="Time [day]", y = "Incidence of Infection") +
   theme_minimal() +
-  geom_line(size=1.2)
+  geom_line(size=0.7)
 
 incidence_panel <- ggplot(data = test_nonvac %>% filter(age!="all", time <201),#, time >41
                           mapping = aes(x = time, y =age)) +
@@ -216,21 +217,21 @@ inf_summary_age_sir_plot <- ggplot(data = summary_inf_sim %>% filter(time <201),
   geom_line() +
   labs(x="Time [day]", y = "Incidence of Infection") +
   theme_minimal() +
-  geom_line(size=1.2)
+  geom_line(size=0.7)
 
 hosp_summary_age_sir_plot <- ggplot(data = summary_inf_sim %>% filter(time <201),
                                     mapping = aes(x = time, y = hosp, col = Strategy)) +
   geom_line() +
   labs(x="Time [day]", y = "Incidence of Hospitalization") +
   theme_minimal() +
-  geom_line(size=1.2)
+  geom_line(size=0.7)
 
 death_summary_age_sir_plot <- ggplot(data = summary_inf_sim %>% filter(time <201),
                                      mapping = aes(x = time, y = death, col = Strategy)) +
   geom_line() +
   labs(x="Time [day]", y = "Incidence of Death") +
   theme_minimal() +
-  geom_line(size=1.2)
+  geom_line(size=0.7)
 
 #Fig-1 Merged
 SimEpi_marge <- (Epicurve_panel/incidence_panel/FOI_panel)
@@ -290,48 +291,54 @@ Fig_3 <- (plot_R_4vac | plot_H_4vac | plot_D_4vac) + plot_annotation(tag_levels 
 #Fig-S1 -----
 p1 <- ggplot(Input_dat_list, aes(x = age, y = pop)) +
   geom_bar(stat = "identity") +
-  ggtitle("Population structure(2019)") +
+  #ggtitle("Population structure(2019)") +
   labs(x = "Age class", y = "Number of people (x 100,000)") +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
 p2 <- ggplot(Input_dat_list, aes(x = age, y = sero)) +
   geom_bar(stat = "identity") +
-  ggtitle("Seroprevalence (early June 2020)") +
+  #ggtitle("Seroprevalence (early June 2020)") +
   labs(x = "Age class", y = "Percentage seropositive") +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
 p3 <- ggplot(Input_dat_list, aes(x = age, y = inci)) +
   geom_bar(stat = "identity") +
-  ggtitle("Incidence of notified cases*") +
+  #ggtitle("Incidence of notified cases*") +
   labs(x = "Age class", y = "Notification per 100,000 inhabitats") +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1)) # plot.title = element_text(size=8),
 
 p4 <- ggplot(VE_dat_list, aes(x = age, y = VE, fill = VaccineType)) +
   geom_bar(stat = "identity", position = "dodge") +
-  ggtitle("Vaccine efficacy") +
+  #ggtitle("Vaccine efficacy") +
   labs(x = "Age class", y = "Proportion protected") +
   scale_fill_manual(values = rev(custom.col.10[1:4])) +
   ylim(0, 1) +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
-p5 <- ggplot(Input_dat_list, aes(x = age, y = will)) +
+p5 <- ggplot(Input_dat_list, aes(x = age, y = will, fill = custom.col.10[5])) +
   geom_bar(stat = "identity") +
-  ggtitle("Max vaccine uptake") +
+  #ggtitle("Max vaccine uptake") +
   labs(x = "Age class", y = "Maximum proportion vaccinated") +
+  scale_fill_manual(values = custom.col.10[5]) +
+  guides(fill ="none") +
   ylim(0, 1) +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
-p_hosp <- ggplot(Input_dat_list, aes(x = age, y = HospRate)) +
+p_hosp <- ggplot(Input_dat_list, aes(x = age, y = HospRate, fill = custom.col.10[5])) +
   geom_bar(stat = "identity") +
-  ggtitle("Infection hospitalization rate") +
+  #ggtitle("Infection hospitalization rate") +
   labs(x = "Age class", y = "Infection hospitalization rate (%)") +
+  scale_fill_manual(values = custom.col.10[5]) +
+  guides(fill ="none") +
   # ylim(0,1) +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
-p_death <- ggplot(Input_dat_list, aes(x = age, y = DeathRate)) +
+p_death <- ggplot(Input_dat_list, aes(x = age, y = DeathRate, fill = custom.col.10[5])) +
   geom_bar(stat = "identity") +
-  ggtitle("Infection fatality rate") +
+  #ggtitle("Infection fatality rate") +
   labs(x = "Age class", y = "Infection fatality rate (%)") +
+  scale_fill_manual(values = custom.col.10[5]) +
+  guides(fill ="none") +
   # ylim(0,1) +
   theme(text = element_text(size = 10), axis.text.x = element_text(angle = 90, hjust = 1))
 
