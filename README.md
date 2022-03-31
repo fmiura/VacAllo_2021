@@ -12,7 +12,7 @@ Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J
 | figures   | Raw figure files in the manuscript |
 
 ## Authors
-[Fuminari Miura](https://github.com/akira-endo), 
+[Fuminari Miura](https://github.com/fmiura), 
 [Ka Yin Leung](https://github.com/kayinleung), 
 [Don Klinkenberg](https://github.com/donkeyshot), 
 [Kylie E. C. Ainslie](https://github.com/kylieainslie),
