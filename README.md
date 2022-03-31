@@ -1,5 +1,5 @@
 # Vaccine allocation algorithm
-Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J (2021). Optimal vaccine allocation for COVID-19 in the Netherlands: a data-driven prioritization (doi: https://doi.org/10.1101/2021.07.20.21260889)
+Supporting materials for Miura F, Leung KY, Klinkenberg D, Ainslie K, Wallinga J (2021). Optimal vaccine allocation for COVID-19 in the Netherlands: a data-driven prioritization. _PLOS Computational Biology_ (doi: https://doi.org/10.1371/journal.pcbi.1009697)
 
 ## Disclaimer 
 This is a preprint version (Not peer reviewed yet)
